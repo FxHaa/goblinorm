@@ -1,0 +1,21 @@
+# Local database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Go build/test artifacts
+bin/
+dist/
+*.test
+coverage.out
+
+# Go workspace
+go.work
+go.work.sum
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE/project local settings
+.idea/
