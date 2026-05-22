@@ -1,19 +1,22 @@
-# GoblinORM
+# 🧌 GoblinORM
 
-A chaotic fantasy-themed ORM for Go where databases are dungeons, structs are creatures, and SQL is forbidden magic.
+> A chaotic fantasy-themed ORM for Go where databases are dungeons, structs are creatures, and SQL is forbidden magic.
 
-## Features
+GoblinORM is a tiny, cursed ORM for Go.
+
+Summon structs. Divine records. Sacrifice rows. Raise tables from the dead.
+
+## ✨ Features
 
 - SQLite support
-- Auto table creation from structs
-- Insert, query, and delete records
-- Reflection-based schema parsing
-- Fantasy-themed logging
+- auto table creation from structs
+- insert, query, and delete records
 - SQL debug mode
-- Lifecycle hooks
-- Typed errors
+- lifecycle hooks
+- typed errors
+- fantasy-themed logs
 
-## Example
+## 🧙 Example
 
 ```go
 package main
@@ -48,26 +51,44 @@ func main() {
 		panic(err)
 	}
 
-	err = dungeon.Summon(&Wizard{
-		Name: "Grug",
-		Mana: 999,
-	})
+	err = dungeon.Summon(&Wizard{Name: "Grug", Mana: 999})
 	if err != nil {
 		panic(err)
 	}
 
 	var wizard Wizard
-
 	err = dungeon.Divine(&wizard, "mana > ?", 100)
 	if err != nil {
 		panic(err)
 	}
 
-	fmt.Printf("Found wizard: %+v\n", wizard)
+	fmt.Printf("The dungeon reveals: %+v\n", wizard)
 }
 ```
 
-## Hooks
+## 🏰 Spells
+
+| Spell | Meaning |
+|---|---|
+| `Open` | open a database |
+| `RaiseTheDead` | create a table |
+| `Summon` | insert a record |
+| `Divine` | query a record |
+| `Sacrifice` | delete a record |
+| `Debug` | reveal generated SQL |
+
+## 📜 Debug Output
+
+```txt
+[🧟] Raising table for Wizard...
+[📜] Forbidden SQL revealed:
+CREATE TABLE IF NOT EXISTS wizards (...);
+[🧙] Summoning Wizard...
+[🔥] Mana accepted.
+[☠️] INSERT successful.
+```
+
+## 🪄 Hooks
 
 ```go
 func (w *Wizard) BeforeSummon() error {
@@ -79,18 +100,18 @@ func (w *Wizard) BeforeSummon() error {
 }
 ```
 
-## Debug Output
+Supported hooks:
 
-```txt
-[🧟] Raising table for Wizard...
-[📜] Forbidden SQL revealed:
-CREATE TABLE IF NOT EXISTS wizards (...);
-[🧙] Summoning Wizard...
-[🔥] Mana accepted.
-[☠️] INSERT successful.
+```go
+BeforeSummon() error
+AfterSummon() error
+BeforeDivine() error
+AfterDivine() error
+BeforeSacrifice() error
+AfterSacrifice() error
 ```
 
-## Run Examples
+## 🧪 Examples
 
 ```bash
 go run ./examples/basic
@@ -98,8 +119,16 @@ go run ./examples/debug
 go run ./examples/hooks
 ```
 
-## Run Tests
+## 🧹 Tests
 
 ```bash
 go test ./...
 ```
+
+## ⚠️ Warning
+
+Do not use this to guard treasure.
+
+Do not use this to run a bank.
+
+Do not anger the goblins.
